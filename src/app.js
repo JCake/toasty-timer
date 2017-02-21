@@ -1,4 +1,4 @@
-const elfie = new Elfie();
+const elfie = navigator.bluetooth ? new Elfie(): new MockElfie();
 
 document.querySelector('.connect').addEventListener('click', () => elfie.start());
 
