@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="manifest" href="manifest.json"
+    </head>
+    <body>
+        <button class="connect">Connect</button>
+        <button class="danceParty">Dance Party</button><button class="stopDanceParty">Stop Dance Party</button>
+        <br/>
+        <button class="fiveToSeven">5 - 7 Minutes</button>
+        <button class="oneToTwo">1 - 2 Minutes</button>
+        <button class="twoToThree">2 - 3 Minutes</button>
+        <button class="threeToFive">3 - 5 Minutes</button>
+        <button class="fourToSix">4 - 6 Minutes</button>
+        <button class="eightToTen">8 - 10 Minutes</button>
+        <br/>
+        <label>Green at</label>
+        <input type="text" class="greenMinutes" size="3"/><label>minutes and </label>
+        <input type="text" class="greenSeconds" size="3"/><label>seconds</label>
+        <br/>
+        <label>Yellow at</label>
+         <input type="text" class="yellowMinutes" size="3"/><label>minutes and </label>
+        <input type="text" class="yellowSeconds" size="3"/><label>seconds</label>
+        <br/>
+        <label>Red at</label>
+         <input type="text" class="redMinutes" size="3"/><label>minutes and </label>
+        <input type="text" class="redSeconds" size="3"/><label>seconds</label>
+        <br/>
+        <label>Current Time:</label> <span class="minutes"></span> <label>minutes and</label> <span class="seconds"></span> <label>seconds</label>
+        <br/>
+        <button class="start">Start Timer</button>
+        <button class="stop">Stop/Pause Timer</button>
+        <button class="reset">Reset</button>
+        
+
+        <script src="src/elfie.js"></script>
+        <script src="src/app.js"></script>
+    </body>
+</html>
