@@ -26,26 +26,37 @@ getNumericValueFromInput = (inputSelector) => {
 
 document.querySelector('.start').addEventListener('click', () => {
     elfie.writeColors(0,0,0);
+    document.querySelector('.currentTime').style.backgroundColor = 'white';
 
     const greenSeconds = getNumericValueFromInput('.greenMinutes') * 60 + getNumericValueFromInput('.greenSeconds');
     const yellowSeconds = getNumericValueFromInput('.yellowMinutes') * 60 + getNumericValueFromInput('.yellowSeconds');
     const redSeconds = getNumericValueFromInput('.redMinutes') * 60 + getNumericValueFromInput('.redSeconds');
 
+    let errors = '';
     if(greenSeconds < 1) {
-        alert('Must enter at least 1 second for all thresholds.');
-    } else if(greenSeconds >= yellowSeconds) {
-        alert('Yellow threshold must be greater than green threshold');
-    } else if(yellowSeconds >= redSeconds) {
-        alert('Red threshold must be greater than yellow threshold');
+        errors += ('Must enter at least 1 second for all thresholds.  ');
+    } 
+    if(greenSeconds >= yellowSeconds) {
+        errors += ('Yellow threshold must be greater than green threshold.  ');
+    } 
+    if(yellowSeconds >= redSeconds) {
+        errors += ('Red threshold must be greater than yellow threshold.  ');
+    } 
+    
+    if(errors){
+        alert(errors);
     } else {
         intervalID = window.setInterval(() => {
             seconds++;
             if(seconds === greenSeconds){
                 elfie.writeColors(0, 255, 0);
+                document.querySelector('.currentTime').style.backgroundColor = 'green';
             } else if(seconds === yellowSeconds){
                 elfie.writeColors(255, 255, 0);
+                document.querySelector('.currentTime').style.backgroundColor = 'yellow';
             } else if(seconds === redSeconds){
                 elfie.writeColors(255, 0, 0);
+                document.querySelector('.currentTime').style.backgroundColor = 'red';
             }
             displayStopwatchTime();
         }, 1000);
@@ -70,6 +81,7 @@ document.querySelector('.reset').addEventListener('click', () => {
     seconds = 0;
     displayStopwatchTime();
     elfie.writeColors(0,0,0);
+    document.querySelector('.currentTime').style.backgroundColor = 'white';
     // TODO enable buttons and inputs to change time limits if disabled.
 });
 
